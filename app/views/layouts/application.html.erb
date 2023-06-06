@@ -15,7 +15,15 @@
 
     <nav class="navbar bg-secondary mb-3" data-bs-theme="dark"
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">HW 4 - Travel Journal</a>
+        <a class="navbar-brand" href="/places">HW 4 - Travel Journal</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-4 mb-lg-1">
+          </ul>
+       
         <span class="navbar-text">
       
             <% if @current_user %>
