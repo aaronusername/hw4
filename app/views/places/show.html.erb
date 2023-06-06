@@ -1,16 +1,37 @@
+<% if @current_user %>
+
 <h1><%= @place["name"] %></h1>
 
-<h2>My Posts</h2>
-<% for post in @posts %>
-  <h3><%= post["title"] %></h3>
-  <h4><%= post["posted_on"] %></h4>
-  <p><%= post["description"] %></p>
+<div class="mt-4">
+  <h2>Posts</h2>
+
+  <div class="row">
+
+    <% for post in @posts %>
+      <div class="col-md-4 col-sm-12">
+        <h3><%= post["title"] %></h3>
+        <h4><%= post["posted_on"] %></h4>
+        <p><%= post["description"] %></p>
+        <% if post.uploaded_image.attached? %>
+          <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+        <% else %>
+          <img src="<%= post["image"] %>" class="img-fluid">
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="mt-3">
+  <p>
+    <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post</a>
+  </p>
+</div>
+
+<% else %>
+<p>Login to access</p>
 <% end %>
 
 <p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
-</p>
-
-<p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places">Back to all places</a>
 </p>
