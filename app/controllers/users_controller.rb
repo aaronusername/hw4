@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    puts 'hiiiiiiiiii'
     @user = User.new
     @user["username"] = params["user"]["username"]
     @user["email"] = params["user"]["email"]
